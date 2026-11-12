@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CJ TORNAMENT - Dashboard</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="brand">
+            <div class="logo-circle">CJ</div>
+            <div>
+                <div class="brand-name">CJ TORNAMENT</div>
+                <div class="brand-sub">PLAY • COMPETE • WIN</div>
+            </div>
+        </div>
+        <div class="coin">
+            <img src="images/coin.png" alt="Coin" class="coin-img-small">
+            <span id="headerBalance">0</span>
+        </div>
+    </header>
+
+    <!-- ================= SCREEN 1: SUPPORT ================= -->
+    <section class="page" id="supportPage">
+        <div class="title">Customer <span>Support</span></div>
+        <div class="subtitle">We are here to help you.</div>
+        
+        <div class="support-card">
+            <div class="support-icon" style="color: #25D366;"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="support-info">
+                <h3>WhatsApp Support</h3>
+                <p>Chat with our support team</p>
+                <span class="whatsapp-number">7208449421</span>
+                <a href="https://wa.me/917208449421" class="btn-small">CONTACT</a>
+            </div>
+        </div>
+
+        <div class="support-card">
+            <div class="support-icon" style="color: #E1306C;"><i class="fa-brands fa-instagram"></i></div>
+            <div class="support-info">
+                <h3>Instagram Support</h3>
+                <p>Connect with us on Instagram.</p>
+                <a href="https://instagram.com/" target="_blank" class="btn-small instagram-btn" style="margin-top: 8px;">OPEN INSTAGRAM →</a>
+            </div>
+        </div>
+
+        <div class="card" style="display: flex; align-items: center; gap: 15px;">
+            <i class="fa-regular fa-clock" style="color: var(--gold); font-size: 24px;"></i>
+            <div>
+                <h3 style="font-size: 13px; margin-bottom: 3px;">Support Timing</h3>
+                <p style="font-size: 11px; color: #aaa;">Daily: 10:00 AM – 10:00 PM</p>
+            </div>
+        </div>
+
+        <div class="card" style="display: flex; align-items: center; gap: 15px;">
+            <i class="fa-regular fa-circle-question" style="color: var(--red); font-size: 24px;"></i>
+            <div>
+                <h3 style="font-size: 13px; margin-bottom: 3px;">Frequently Asked Questions</h3>
+                <p style="font-size: 11px; color: #aaa;">Find answers to common questions.</p>
+            </div>
+            <i class="fa-solid fa-chevron-right" style="margin-left: auto; color: #555;"></i>
+        </div>
+    </section>
+
+    <!-- ================= SCREEN 2: RANKING ================= -->
+    <section class="page" id="rankingPage">
+        <div class="title">Player <span>Ranking</span></div>
+        <div class="subtitle">Top players of CJ TORNAMENT</div>
+        
+        <div class="podium" id="podium"></div>
+
+        <div class="my-rank-banner">
+            <span style="font-size: 12px; font-weight: 600;"><i class="fa-solid fa-user" style="color: var(--gold);"></i> Your Rank: <span id="myRank" style="font-weight: 800; color: white;">#--</span></span>
+            <span style="font-size: 12px; color: var(--gold); font-weight: 800;"><i class="fa-solid fa-crown"></i> <span id="myPoints">0</span> PTS</span>
+        </div>
+
+        <div class="card" style="padding: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding: 0 5px;">
+                <h3 style="font-size: 14px; font-weight: 700;">Complete Leaderboard</h3>
+                <span style="font-size: 10px; color: var(--red); font-weight: bold; cursor: pointer;">View All →</span>
+            </div>
+            <div id="rankingList">
+                <div style="text-align:center; color:#888; padding:20px; font-size: 12px;">Loading rankings...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCREEN 3: PLAY ================= -->
+    <section class="page active" id="playPage">
+        <div class="banner">
+            <div class="banner-content">
+                <small>WELCOME TO</small>
+                <h1 id="bannerTitle">CJ<br>TORNAMENT</h1>
+                <p id="bannerText">PLAY • COMPETE • WIN</p>
+            </div>
+            <div class="banner-art" id="bannerArt">⚔️</div>
+            <button class="banner-arrow left" id="prevBanner">‹</button>
+            <button class="banner-arrow right" id="nextBanner">›</button>
+        </div>
+        <div class="dots" id="bannerDots">
+            <span class="dot active"></span><span class="dot"></span>
+            <span class="dot"></span><span class="dot"></span>
+        </div>
+
+        <div class="title">Play <span>Matches</span></div>
+        <div class="subtitle">Choose your tournament category.</div>
+
+        <div class="tabs">
+            <button class="tab active" data-type="ongoing">ONGOING</button>
+            <button class="tab" data-type="upcoming">UPCOMING</button>
+            <button class="tab" data-type="completed">COMPLETED</button>
+        </div>
+
+        <div id="matchList">
+            <div style="text-align:center; color:#888; padding:20px; font-size: 12px;">Loading matches...</div>
+        </div>
+    </section>
+
+    <!-- ================= SCREEN 4: WALLET ================= -->
+    <section class="page" id="walletPage">
+        <div class="title">My <span class="gold">Wallet</span></div>
+        <div class="subtitle">Your wallet overview.</div>
+
+        <div class="wallet-grid">
+            <!-- Large Coin Image Added Here -->
+            <div class="wallet-total-card">
+                <img src="images/coin.png" alt="Coin" class="coin-img-large">
+                <p>TOTAL BALANCE</p>
+                <h2 id="wTotal">0</h2>
+            </div>
+            
+            <!-- Tiny Coin Images Added Here -->
+            <div class="wallet-stats-card">
+                <div class="stat-row"><span>Deposited</span> <span class="stat-val"><img src="images/coin.png" alt="Coin" class="coin-img-tiny"> <span id="wDeposited">0</span></span></div>
+                <div class="stat-row"><span>Winning</span> <span class="stat-val"><img src="images/coin.png" alt="Coin" class="coin-img-tiny"> <span id="wWinning">0</span></span></div>
+                <div class="stat-row"><span>Earnings</span> <span class="stat-val"><img src="images/coin.png" alt="Coin" class="coin-img-tiny"> <span id="wEarnings">0</span></span></div>
+                <div class="stat-row"><span>Payouts</span> <span class="stat-val"><img src="images/coin.png" alt="Coin" class="coin-img-tiny"> <span id="wPayouts">0</span></span></div>
+            </div>
+        </div>
+
+        <div class="wallet-actions">
+            <button class="btn-add"><i class="fa-solid fa-plus"></i> ADD MONEY</button>
+            <button class="btn-withdraw"><i class="fa-solid fa-wallet"></i> WITHDRAW</button>
+        </div>
+
+        <div class="title" style="font-size: 16px;">Transaction History</div>
+        <div class="card" style="padding: 0; border: none; background: transparent;">
+            <div class="txn-box">
+                <i class="fa-regular fa-file-lines"></i>
+                <p>No transactions yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SCREEN 5: PROFILE ================= -->
+    <section class="page" id="profilePage">
+        <div class="title">My <span>Profile</span></div>
+        <div class="subtitle">Your account information.</div>
+
+        <!-- Badge Removed -->
+        <div class="profile-header">
+            <div class="profile-avatar" id="avatar">CJ</div>
+            <div class="profile-info">
+                <h2 id="pName">Loading...</h2>
+                <p id="pEmail">Loading...</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="font-size: 14px; margin-bottom: 15px; font-weight: 700;"><i class="fa-solid fa-user" style="color: var(--gold); margin-right: 5px;"></i> Account Details</h3>
+            
+            <div class="detail-row">
+                <i class="fa-solid fa-id-badge"></i>
+                <div>
+                    <p>Account Owner Name</p>
+                    <p id="pDetailName">...</p>
+                </div>
+            </div>
+            
+            <div class="detail-row">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <p>Verified Email Address</p>
+                    <p id="pDetailEmail">...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="font-size: 14px; margin-bottom: 15px; font-weight: 700;"><i class="fa-solid fa-lock" style="color: var(--gold); margin-right: 5px;"></i> Change Password</h3>
+            
+            <input type="password" id="currPass" class="form-input" placeholder="Current Password">
+            <input type="password" id="newPass" class="form-input" placeholder="New Password">
+            <input type="password" id="confPass" class="form-input" placeholder="Confirm New Password">
+            
+            <button class="btn-full" onclick="changePassword()">CHANGE PASSWORD</button>
+            <div id="passMsg" style="font-size: 11px; margin-top: 10px; text-align: center; font-weight: 600;"></div>
+        </div>
+
+        <button class="btn-full btn-logout" onclick="logoutUser()"><i class="fa-solid fa-right-from-bracket"></i> LOG OUT</button>
+    </section>
+
+    <!-- ================= BOTTOM NAVIGATION ================= -->
+    <nav class="bottom-nav">
+        <button class="nav-btn" data-page="support"><span class="nav-icon">🎧</span>Support</button>
+        <button class="nav-btn" data-page="ranking"><span class="nav-icon">🏆</span>Ranking</button>
+        <button class="nav-btn active" data-page="play"><span class="nav-icon">🎮</span>Play</button>
+        <button class="nav-btn" data-page="wallet"><span class="nav-icon">👛</span>Wallet</button>
+        <button class="nav-btn" data-page="profile"><span class="nav-icon">👤</span>Profile</button>
+    </nav>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
